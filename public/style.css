@@ -1,31 +1,44 @@
-body {
-    font-family: 'Nunito', sans-serif;
-    background-color: #f4f4f4;
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.container {
-    width: 80%;
-    max-width: 500px;
-    background: #fff;
-    padding: 25px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-/* เพิ่ม box-sizing */
-* {
     box-sizing: border-box;
 }
 
-h1 {
+body {
+    font-family: 'Nunito', sans-serif;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),
+        url('/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 25px;
+}
+
+.contact-left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    flex: 1;
+}
+
+.contact-left h1 {
+    font-size: 40px;
     text-align: center;
-    color: #6562b3;
+    color: #000000;
 }
 
 .form-group {
@@ -40,25 +53,84 @@ h1 {
 }
 
 .form-group input {
-    width: 100%;
-    padding: 10px;
+    font-size: 14px;
+    width: 400px;
+    height: 50px;
+    padding: 10px 20px;
     border: 1px solid #ddd;
-    border-radius: 20px;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.form-group input:focus {
+    border: 2px solid #81ABD3;
 }
 
 button {
     margin-top: 30px;
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #6562b3;
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #8AB7E2;
     color: #fff;
     border: none;
-    border-radius: 20px;
+    border-radius: 50px;
     font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #7371b3;
+    background-color: #81ABD3;
+}
+
+.contact-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-right img {
+    max-width: 450px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.contact-container-s {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+.contact-container-s i {
+    font-size: 100px;
+    color: #4caf50;
+}
+
+.contact-container-s h1 {
+    color: #4caf50;
+}
+
+.contact-container-s p {
+    margin-top: 5px;
+    color: #3e4a5a;
+}
+
+.contact-container-s a {
+    margin-top: 30px;
+    width: fit-content;
+    color: #81ABD3;
+    text-align: center;
+}
+
+@media (max-width: 800px) {
+    .form-group input{
+        width: 80vw;
+    }
+    .contact-right {
+        display: none;
+    }
+    
 }

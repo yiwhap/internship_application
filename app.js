@@ -26,22 +26,27 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Route to serve the success page
+app.get('/success.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'success.html'));
+});
+
 // Route to handle form submission
 app.post('/submit', upload.single('resume'), (req, res) => {
-    const { name, email, tel } = req.body;
+    const { name, email } = req.body;
     const resumePath = req.file.path;
 
     // Setup Nodemailer
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'yiwhapukdee@gmail.com', // Replace with your email
-            pass: 'ldqa ubes jblu sjua'   // Replace with your email password
+            user: 'testluv119@gmail.com', // Replace with your email
+            pass: 'htdb yxso jjbl odck' // Replace with your email password
         }
     });
 
     const mailOptions = {
-        from: 'yiwhapukdee@gmail.com',  // Replace with your email
+        from: 'testluv119@gmail.com', // Replace with your email
         to: email,
         subject: 'Application Received',
         text: `Dear ${name},\n\nThank you for your application. We have received your resume and will review it shortly.\n\nBest regards,\n\nHR`,
@@ -53,7 +58,7 @@ app.post('/submit', upload.single('resume'), (req, res) => {
             return res.status(500).send('Error sending email');
         }
         console.log('Email sent:', info.response);
-        res.send('Application submitted successfully');
+        res.redirect('/success.html');
     });
 });
 
